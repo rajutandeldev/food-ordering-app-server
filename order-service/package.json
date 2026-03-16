@@ -21,13 +21,17 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/jwt": "^11.0.2",
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^11.2.6",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.4",
     "dotenv": "^17.3.1",
+    "firebase-admin": "^13.7.0",
     "helmet": "^8.1.0",
+    "nest-utilities": "https://github.com/rajutandeldev/utilities-nest#main",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },

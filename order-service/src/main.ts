@@ -3,7 +3,7 @@ import { AppModule } from 'src/app.module';
 import { ValidationPipe } from '@nestjs/common';
 import helmet from 'helmet';
 import * as dotenv from 'dotenv';
-import { setupSwagger } from 'config/swagger.config';
+import { setupSwagger } from 'src/config/swagger.config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
