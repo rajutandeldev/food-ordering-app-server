@@ -2,7 +2,7 @@
 /dist
 /node_modules
 /build
-
+/src/config/firestore-key.json
 # Logs
 logs
 *.log

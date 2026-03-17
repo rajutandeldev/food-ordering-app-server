@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { AddRestaurantDto } from './dto/addRestaurant.dto';
 import { db } from 'src/db/initialize-db';
-import { messaging } from 'firebase-admin';
 
 @Injectable()
 export class RestaurantsService {
@@ -16,7 +15,7 @@ export class RestaurantsService {
                 created_by: createdBy,
                 updated_by: createdBy,
             });
-            return { messaging: "Restaurant added successfully", data: AddRestaurantData.id };
+            return { message: "Restaurant added successfully", data: AddRestaurantData.id };
         } catch (error) {
             throw new Error("Failed to add restaurant: " + error.message);
         }
@@ -27,7 +26,21 @@ export class RestaurantsService {
     }
 
     async fetchRestaurants() {
-        return "This is restaurant service";
+        try{
+            const fetchRestaurantsData = await db.collection('restaurants').get();
+            return fetchRestaurantsData.docs.map(doc =>{
+                const {created_at, updated_at,created_by, updated_by, ...rest} = doc.data();
+                return {
+                    id: doc.id,
+                    ...rest
+                }
+            }
+              
+            );
+        }catch(error){
+            throw new Error("Failed to fetch restaurants: " + error.message);
+        }
+       
     }
 
     async deleteRestaurant(body: any) {

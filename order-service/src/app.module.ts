@@ -10,6 +10,9 @@ import { ConfigModule } from '@nestjs/config';
 import { RestaurantsController } from './restaurants/restaurants.controller';
 import { RestaurantsService } from './restaurants/restaurants.service';
 import { RestaurantsModule } from './restaurants/restaurants.module';
+import { MenuItemsController } from './menu-items/menu-items.controller';
+import { MenuItemsService } from './menu-items/menu-items.service';
+import { MenuItemsModule } from './menu-items/menu-items.module';
 
 
 @Module({
@@ -18,9 +21,10 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
       isGlobal: true,
     }),
     OrderModule,
-    RestaurantsModule
+    RestaurantsModule,
+    MenuItemsModule
   ],
-  controllers: [AppController, RestaurantsController],
+  controllers: [AppController, RestaurantsController, MenuItemsController],
   providers: [
     AppService,
     {
@@ -31,7 +35,8 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
       provide: APP_INTERCEPTOR,
       useClass: ResponseInterceptor
     },
-    RestaurantsService
+    RestaurantsService,
+    MenuItemsService
 
   ],
 })

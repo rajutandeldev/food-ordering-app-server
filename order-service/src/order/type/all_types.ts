@@ -24,8 +24,8 @@ export interface MenuItemsMaster {
 }
 
 export interface Orders {
-    userId: string
-    restaurantId: string
+    user_id: string
+    restaurant_id: string
     total_amount: number
     order_status: string
     payment_status: string
